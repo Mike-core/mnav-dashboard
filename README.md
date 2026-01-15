@@ -4,7 +4,7 @@ A real-time dashboard for tracking the market Net Asset Value (mNAV) of Digital 
 
 ## Live Demo
 
-🔗 [View Dashboard](https://yourusername.github.io/mnav-dashboard/)
+🔗 [View Dashboard](https://mike-core.github.io/mnav-dashboard/)
 
 ## Features
 
@@ -86,7 +86,7 @@ If the API fails to fetch a stock price, click the Stock Price cell to enter man
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mnav-dashboard.git
+git clone https://github.com/Mike-core/mnav-dashboard.git
 cd mnav-dashboard
 
 # Install dependencies
