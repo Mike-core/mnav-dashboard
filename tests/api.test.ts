@@ -10,10 +10,10 @@ describe('API Integration', () => {
 
     it('parses valid response correctly', async () => {
       const mockResponse = { bitcoin: { usd: 65000 } };
-      global.fetch = vi.fn().mockResolvedValue({
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockResponse),
-      });
+      }));
 
       const res = await fetch(COINGECKO_URL);
       const data = await res.json();
@@ -22,17 +22,17 @@ describe('API Integration', () => {
     });
 
     it('handles network error', async () => {
-      global.fetch = vi.fn().mockRejectedValue(new Error('Network error'));
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Network error')));
 
       await expect(fetch(COINGECKO_URL)).rejects.toThrow('Network error');
     });
 
     it('handles HTTP error status', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         ok: false,
         status: 429,
         statusText: 'Too Many Requests',
-      });
+      }));
 
       const res = await fetch(COINGECKO_URL);
       expect(res.ok).toBe(false);
@@ -40,10 +40,10 @@ describe('API Integration', () => {
     });
 
     it('handles malformed response', async () => {
-      global.fetch = vi.fn().mockResolvedValue({
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve({ invalid: 'data' }),
-      });
+      }));
 
       const res = await fetch(COINGECKO_URL);
       const data = await res.json();
@@ -69,10 +69,10 @@ describe('API Integration', () => {
         }
       };
       
-      global.fetch = vi.fn().mockResolvedValue({
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockResponse),
-      });
+      }));
 
       const res = await fetch(YAHOO_URL);
       const data = await res.json();
@@ -88,10 +88,10 @@ describe('API Integration', () => {
         }
       };
       
-      global.fetch = vi.fn().mockResolvedValue({
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockResponse),
-      });
+      }));
 
       const res = await fetch(YAHOO_URL);
       const data = await res.json();
@@ -111,10 +111,10 @@ describe('API Integration', () => {
         }
       };
       
-      global.fetch = vi.fn().mockResolvedValue({
+      vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockResponse),
-      });
+      }));
 
       const res = await fetch(YAHOO_URL);
       const data = await res.json();
@@ -133,7 +133,7 @@ describe('API Integration', () => {
     it('tries multiple proxies on failure', async () => {
       let callCount = 0;
       
-      global.fetch = vi.fn().mockImplementation((url: string) => {
+      vi.stubGlobal('fetch', vi.fn().mockImplementation((url: string) => {
         callCount++;
         if (url.includes('corsproxy.io')) {
           return Promise.reject(new Error('Proxy 1 failed'));
@@ -144,7 +144,7 @@ describe('API Integration', () => {
             chart: { result: [{ meta: { regularMarketPrice: 100 } }] }
           }),
         });
-      });
+      }));
 
       // Simulate trying proxies
       let price = null;
