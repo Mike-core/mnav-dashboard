@@ -1,9 +1,9 @@
 import { useMemo, useCallback } from 'react';
 import { useStore, getEffectiveStockPrice } from '../store/useStore';
 import { calculateAll } from '../utils/calculations';
-import { formatUSD, formatUSDPrice, formatRatio, formatBTC, formatShares } from '../utils/formatters';
+import { formatUSD, formatUSDPrice, formatRatio } from '../utils/formatters';
 import { EditableCell } from './EditableCell';
-import { CompanyWithCalculations, SortDirection } from '../types';
+import { Company, CompanyWithCalculations, SortDirection } from '../types';
 
 // mNAV color thresholds
 function getMNavColor(mnav: number | null): string {
@@ -13,8 +13,16 @@ function getMNavColor(mnav: number | null): string {
   return 'mnav-red';
 }
 
+// Column definition type
+type ColumnDef = {
+  key: string;
+  label: string;
+  frozen?: boolean;
+  type?: string;
+};
+
 // Column definitions
-const columns = [
+const columns: ColumnDef[] = [
   { key: 'name', label: 'Name', frozen: true },
   { key: 'ticker', label: 'Ticker', frozen: true },
   { key: 'mNAV', label: 'mNAV', type: 'mnav' },
@@ -35,7 +43,7 @@ const columns = [
   { key: 'otherDebt', label: 'Other Debt', type: 'editable-usd' },
   { key: 'preferredStock', label: 'Preferred Stock', type: 'editable-usd' },
   { key: 'commonSharesOutstanding', label: 'Shares Outstanding', type: 'editable-shares' },
-] as const;
+];
 
 export function Dashboard() {
   const companies = useStore((s) => s.companies);
@@ -167,7 +175,7 @@ export function Dashboard() {
           <EditableCell
             value={value as number | null}
             onChange={(newVal) =>
-              updateCompany(company.id, columnKey as keyof typeof company, newVal)
+              updateCompany(company.id, columnKey as keyof Company, newVal)
             }
           />
         );
@@ -177,7 +185,7 @@ export function Dashboard() {
           <EditableCell
             value={value as number | null}
             onChange={(newVal) =>
-              updateCompany(company.id, columnKey as keyof typeof company, newVal)
+              updateCompany(company.id, columnKey as keyof Company, newVal)
             }
           />
         );
@@ -187,7 +195,7 @@ export function Dashboard() {
           <EditableCell
             value={value as number | null}
             onChange={(newVal) =>
-              updateCompany(company.id, columnKey as keyof typeof company, newVal)
+              updateCompany(company.id, columnKey as keyof Company, newVal)
             }
           />
         );
@@ -202,7 +210,7 @@ export function Dashboard() {
               onChange={(e) =>
                 updateCompany(
                   company.id,
-                  columnKey as keyof typeof company,
+                  columnKey as keyof Company,
                   e.target.value
                 )
               }
