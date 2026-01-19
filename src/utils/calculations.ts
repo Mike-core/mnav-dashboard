@@ -69,15 +69,16 @@ export function calcMarketCapToAssets(
   return marketCap / assets;
 }
 
-// Fair Stock Price = (Assets - Debt - Preferred Stock) / Market Capitalization
+// Fair Stock Price = ((Assets - Debt - Preferred Stock) / Market Capitalization) * Stock Price
 export function calcFairStockPrice(
-  assets: number | null,
-  debt: number | null,
-  preferredStock: number | null,
-  marketCap: number | null
-): number | null {
-  if (assets === null || marketCap === null || marketCap === 0) return null;
-  return (assets - (debt ?? 0) - (preferredStock ?? 0)) / marketCap;
+    assets: number | null,
+    debt: number | null,
+    preferredStock: number | null,
+    marketCap: number | null,
+    stockPrice: number | null
+  ): number | null {
+    if (assets === null || marketCap === null || marketCap === 0 || stockPrice === null) return null;
+    return ((assets - (debt ?? 0) - (preferredStock ?? 0)) / marketCap) * stockPrice;
 }
 
 // Fair BTC Stock Price = (Bitcoin Assets - Long Term Debt - Preferred Stock) / Market Capitalization
@@ -135,8 +136,7 @@ export function calculateAll(inputs: CalculationInputs): CalculationOutputs {
   const enterpriseValue = calcEnterpriseValue(marketCap, debt, inputs.preferredStock, inputs.cash);
   const mNAV = calcMNAV(enterpriseValue, bitcoinAssets);
   const marketCapToAssets = calcMarketCapToAssets(marketCap, assets);
-  const fairStockPrice = calcFairStockPrice(assets, debt, inputs.preferredStock, marketCap);
-  const fairBTCStockPrice = calcFairBTCStockPrice(bitcoinAssets, inputs.longTermDebt, inputs.preferredStock, marketCap);
+  const fairStockPrice = calcFairStockPrice(assets, debt, inputs.preferredStock, marketCap, inputs.stockPrice);  const fairBTCStockPrice = calcFairBTCStockPrice(bitcoinAssets, inputs.longTermDebt, inputs.preferredStock, marketCap);
   const equilibriumBTCPrice = calcEquilibriumBTCPrice(inputs.bitcoinPrice, bitcoinAssets, enterpriseValue);
 
   return {
