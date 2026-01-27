@@ -81,17 +81,6 @@ export function calcFairStockPrice(
     return ((assets - (debt ?? 0) - (preferredStock ?? 0)) / marketCap) * stockPrice;
 }
 
-// Fair BTC Stock Price = (Bitcoin Assets - Long Term Debt - Preferred Stock) / Market Capitalization
-export function calcFairBTCStockPrice(
-  btcAssets: number | null,
-  longTermDebt: number | null,
-  preferredStock: number | null,
-  marketCap: number | null
-): number | null {
-  if (btcAssets === null || marketCap === null || marketCap === 0) return null;
-  return (btcAssets - (longTermDebt ?? 0) - (preferredStock ?? 0)) / marketCap;
-}
-
 // Equilibrium BTC Price = Bitcoin Price × (Bitcoin Assets / Enterprise Value)
 export function calcEquilibriumBTCPrice(
   btcPrice: number | null,
@@ -124,9 +113,7 @@ export interface CalculationOutputs {
   mNAV: number | null;
   marketCapToAssets: number | null;
   fairStockPrice: number | null;
-  fairBTCStockPrice: number | null;
-  equilibriumBTCPrice: number | null;
-}
+
 
 export function calculateAll(inputs: CalculationInputs): CalculationOutputs {
   const marketCap = calcMarketCap(inputs.commonSharesOutstanding, inputs.stockPrice);
@@ -136,19 +123,7 @@ export function calculateAll(inputs: CalculationInputs): CalculationOutputs {
   const enterpriseValue = calcEnterpriseValue(marketCap, debt, inputs.preferredStock, inputs.cash);
   const mNAV = calcMNAV(enterpriseValue, bitcoinAssets);
   const marketCapToAssets = calcMarketCapToAssets(marketCap, assets);
-  const fairStockPrice = calcFairStockPrice(assets, debt, inputs.preferredStock, marketCap, inputs.stockPrice);  const fairBTCStockPrice = calcFairBTCStockPrice(bitcoinAssets, inputs.longTermDebt, inputs.preferredStock, marketCap);
-  const equilibriumBTCPrice = calcEquilibriumBTCPrice(inputs.bitcoinPrice, bitcoinAssets, enterpriseValue);
-
+  const fairStockPrice = calcFairStockPrice(assets, debt, inputs.preferredStock, marketCap, inputs.stockPrice);  
   return {
     marketCap,
-    bitcoinAssets,
-    assets,
-    debt,
-    enterpriseValue,
-    mNAV,
-    marketCapToAssets,
-    fairStockPrice,
-    fairBTCStockPrice,
-    equilibriumBTCPrice,
-  };
 }
