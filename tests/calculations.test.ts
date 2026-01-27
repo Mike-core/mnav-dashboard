@@ -8,7 +8,6 @@ import {
   calcMNAV,
   calcMarketCapToAssets,
   calcFairStockPrice,
-  calcFairBTCStockPrice,
   calcEquilibriumBTCPrice,
   calculateAll,
 } from '../src/utils/calculations';
@@ -166,21 +165,6 @@ describe('Formula Engine', () => {
 
     it('returns null if marketCap is 0', () => {
       expect(calcFairStockPrice(100000000, 20000000, 5000000, 0)).toBeNull();
-    });
-  });
-
-  describe('calcFairBTCStockPrice', () => {
-    it('calculates: (BTC Assets - LT Debt - Preferred) / MarketCap', () => {
-      // (80M - 15M - 5M) / 50M = 1.2
-      expect(calcFairBTCStockPrice(80000000, 15000000, 5000000, 50000000)).toBe(1.2);
-    });
-
-    it('handles null LT debt as 0', () => {
-      expect(calcFairBTCStockPrice(80000000, null, 5000000, 50000000)).toBe(1.5);
-    });
-
-    it('returns null if marketCap is 0', () => {
-      expect(calcFairBTCStockPrice(80000000, 15000000, 5000000, 0)).toBeNull();
     });
   });
 
