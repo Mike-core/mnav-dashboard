@@ -56,7 +56,6 @@ A real-time dashboard for tracking the market Net Asset Value (mNAV) of Digital 
 | **mNAV** | Enterprise Value / Bitcoin Assets |
 | Market Cap / Assets | Market Cap / Assets |
 | Fair Stock Price | (Assets - Debt - Preferred Stock) / Market Cap |
-| Fair BTC Stock Price | (Bitcoin Assets - LT Debt - Preferred Stock) / Market Cap |
 | Equilibrium BTC Price | Bitcoin Price × (Bitcoin Assets / Enterprise Value) |
 
 ## Usage
