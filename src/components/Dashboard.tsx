@@ -30,7 +30,6 @@ const columns: ColumnDef[] = [
   { key: 'equilibriumBTCPrice', label: 'Equilibrium BTC', type: 'usd' },
   { key: 'stockPrice', label: 'Stock Price', type: 'price' },
   { key: 'fairStockPrice', label: 'Fair Stock Price', type: 'ratio' },
-  { key: 'fairBTCStockPrice', label: 'Fair BTC Stock', type: 'ratio' },
   { key: 'marketCap', label: 'Market Cap', type: 'usd-compact' },
   { key: 'enterpriseValue', label: 'Enterprise Value', type: 'usd-compact' },
   { key: 'assets', label: 'Assets', type: 'usd-compact' },
