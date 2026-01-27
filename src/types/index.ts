@@ -21,7 +21,6 @@ export interface CalculatedFields {
   mNAV: number | null;
   marketCapToAssets: number | null;
   fairStockPrice: number | null;
-  fairBTCStockPrice: number | null;
   equilibriumBTCPrice: number | null;
 }
 
