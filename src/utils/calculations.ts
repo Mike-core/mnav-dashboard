@@ -22,14 +22,13 @@ export function calcBitcoinAssets(
   return btc * btcPrice;
 }
 
-// Assets = Bitcoin Assets + Cash + Other Assets
+// Assets = Bitcoin Assets + Cash 
 export function calcAssets(
   btcAssets: number | null,
-  cash: number | null,
-  otherAssets: number | null
+  cash: number | null
 ): number | null {
   if (btcAssets === null) return null;
-  return btcAssets + (cash ?? 0) + (otherAssets ?? 0);
+  return btcAssets + (cash ?? 0) ;
 }
 
 // Debt = Long Term Debt + Other Debt
@@ -96,7 +95,6 @@ export interface CalculationInputs {
   commonSharesOutstanding: number | null;
   bitcoin: number | null;
   cash: number | null;
-  otherAssets: number | null;
   longTermDebt: number | null;
   otherDebt: number | null;
   preferredStock: number | null;
@@ -118,7 +116,7 @@ export interface CalculationOutputs {
 export function calculateAll(inputs: CalculationInputs): CalculationOutputs {
   const marketCap = calcMarketCap(inputs.commonSharesOutstanding, inputs.stockPrice);
   const bitcoinAssets = calcBitcoinAssets(inputs.bitcoin, inputs.bitcoinPrice);
-  const assets = calcAssets(bitcoinAssets, inputs.cash, inputs.otherAssets);
+  const assets = calcAssets(bitcoinAssets, inputs.cash);
   const debt = calcDebt(inputs.longTermDebt, inputs.otherDebt);
   const enterpriseValue = calcEnterpriseValue(marketCap, debt, inputs.preferredStock, inputs.cash);
   const mNAV = calcMNAV(enterpriseValue, bitcoinAssets);
