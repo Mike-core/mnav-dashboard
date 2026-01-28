@@ -54,20 +54,16 @@ describe('Formula Engine', () => {
   });
 
   describe('calcAssets', () => {
-    it('calculates sum of all assets', () => {
-      expect(calcAssets(1000000, 500000, 200000)).toBe(1700000);
+    it('calculates sum of btcAssets and cash', () => {
+      expect(calcAssets(1000000, 500000)).toBe(1500000);
     });
 
     it('handles null cash as 0', () => {
-      expect(calcAssets(1000000, null, 200000)).toBe(1200000);
-    });
-
-    it('handles null otherAssets as 0', () => {
-      expect(calcAssets(1000000, 500000, null)).toBe(1500000);
+      expect(calcAssets(1000000, null)).toBe(1000000);
     });
 
     it('returns null if btcAssets is null', () => {
-      expect(calcAssets(null, 500000, 200000)).toBeNull();
+      expect(calcAssets(null, 500000)).toBeNull();
     });
   });
 
