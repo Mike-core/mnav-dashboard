@@ -50,7 +50,7 @@ A real-time dashboard for tracking the market Net Asset Value (mNAV) of Digital 
 |--------|---------|
 | Market Cap | Shares Outstanding × Stock Price |
 | Bitcoin Assets | BTC Holdings × Bitcoin Price |
-| Assets | Bitcoin Assets + Cash + Other Assets |
+| Assets | Bitcoin Assets + Cash |
 | Debt | Long Term Debt + Other Debt |
 | Enterprise Value | Market Cap + Debt + Preferred Stock - Cash |
 | **mNAV** | Enterprise Value / Bitcoin Assets |
