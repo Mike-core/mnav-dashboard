@@ -6,7 +6,6 @@ export interface Company {
   commonSharesOutstanding: number | null;
   bitcoin: number | null;
   cash: number | null;
-  otherAssets: number | null;
   longTermDebt: number | null;
   otherDebt: number | null;
   preferredStock: number | null;
