@@ -186,7 +186,6 @@ describe('Formula Engine', () => {
         commonSharesOutstanding: 1000000,
         bitcoin: 100,
         cash: 1000000,
-        otherAssets: 500000,
         longTermDebt: 2000000,
         otherDebt: 500000,
         preferredStock: 100000,
@@ -200,8 +199,8 @@ describe('Formula Engine', () => {
       // BTC Assets = 100 × $65K = $6.5M
       expect(result.bitcoinAssets).toBe(6500000);
       
-      // Assets = $6.5M + $1M + $0.5M = $8M
-      expect(result.assets).toBe(8000000);
+      // Assets = $6.5M + $1M = $7.5M
+      expect(result.assets).toBe(7500000);
       
       // Debt = $2M + $0.5M = $2.5M
       expect(result.debt).toBe(2500000);
@@ -218,7 +217,6 @@ describe('Formula Engine', () => {
         commonSharesOutstanding: 1000000,
         bitcoin: 0,
         cash: 1000000,
-        otherAssets: 500000,
         longTermDebt: 0,
         otherDebt: 0,
         preferredStock: 0,
@@ -235,7 +233,6 @@ describe('Formula Engine', () => {
         commonSharesOutstanding: null,
         bitcoin: null,
         cash: null,
-        otherAssets: null,
         longTermDebt: null,
         otherDebt: null,
         preferredStock: null,
