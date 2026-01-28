@@ -26,7 +26,7 @@ describe('Data Persistence & Export/Import', () => {
 
     it('has all numeric fields initialized to null', () => {
       const numericFields = [
-        'commonSharesOutstanding', 'bitcoin', 'cash', 'otherAssets',
+        'commonSharesOutstanding', 'bitcoin', 'cash',
         'longTermDebt', 'otherDebt', 'preferredStock'
       ];
       
@@ -48,7 +48,6 @@ describe('Data Persistence & Export/Import', () => {
           commonSharesOutstanding: 1000000,
           bitcoin: 100,
           cash: 500000,
-          otherAssets: 200000,
           longTermDebt: 100000,
           otherDebt: 50000,
           preferredStock: 0,
@@ -67,7 +66,6 @@ describe('Data Persistence & Export/Import', () => {
           commonSharesOutstanding: null,
           bitcoin: null,
           cash: null,
-          otherAssets: null,
           longTermDebt: null,
           otherDebt: null,
           preferredStock: null,
@@ -99,7 +97,6 @@ describe('Data Persistence & Export/Import', () => {
           commonSharesOutstanding: null,
           // bitcoin missing
           cash: null,
-          otherAssets: null,
           longTermDebt: null,
           otherDebt: null,
           preferredStock: null,
@@ -117,7 +114,6 @@ describe('Data Persistence & Export/Import', () => {
           commonSharesOutstanding: 'invalid', // should be number or null
           bitcoin: null,
           cash: null,
-          otherAssets: null,
           longTermDebt: null,
           otherDebt: null,
           preferredStock: null,
