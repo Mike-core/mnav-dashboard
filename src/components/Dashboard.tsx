@@ -33,9 +33,8 @@ const columns: ColumnDef[] = [
   { key: 'marketCap', label: 'Market Cap', type: 'usd-compact' },
   { key: 'enterpriseValue', label: 'Enterprise Value', type: 'usd-compact' },
   { key: 'assets', label: 'Assets', type: 'usd-compact' },
-  { key: 'bitcoinAssets', label: 'Bitcoin Assets', type: 'usd-compact' },
   { key: 'cash', label: 'Cash', type: 'editable-usd' },
-  { key: 'otherAssets', label: 'Other Assets', type: 'editable-usd' },
+  
   { key: 'bitcoin', label: 'Bitcoin (BTC)', type: 'editable-btc' },
   { key: 'debt', label: 'Debt', type: 'usd-compact' },
   { key: 'longTermDebt', label: 'Long Term Debt', type: 'editable-usd' },
