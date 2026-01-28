@@ -66,7 +66,6 @@ Click any editable cell (highlighted on hover) to enter data:
 - **Shares Outstanding** — Total common shares
 - **Bitcoin (BTC)** — Total BTC holdings
 - **Cash** — Cash and cash equivalents
-- **Other Assets** — Non-BTC, non-cash assets
 - **Long Term Debt** — Bonds, convertible notes, etc.
 - **Other Debt** — Short-term debt, other liabilities
 - **Preferred Stock** — Preferred equity
