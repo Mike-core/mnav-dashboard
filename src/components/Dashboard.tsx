@@ -56,11 +56,11 @@ export function Dashboard() {
   // Calculate all derived values
   const companiesWithCalcs: CompanyWithCalculations[] = useMemo(() => {
     return companies.map((company) => {
-      const stockPrice = getEffectiveStockPrice(
-        company.ticker,
-        stockPrices,
-        manualStockPrices
-      );
+const stockPrice = getEffectiveStockPrice({
+            ticker: company.ticker,
+            stockPrices,
+            manualStockPrices,
+});
 
       const calculations = calculateAll({
         ...company,
