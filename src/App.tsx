@@ -2,12 +2,14 @@ import { Header } from './components/Header';
 import { Dashboard } from './components/Dashboard';
 import { useBitcoinPrice } from './hooks/useBitcoinPrice';
 import { useStockPrices } from './hooks/useStockPrices';
+import { useSharesOutstanding } from './hooks/useSharesOutstanding';
 import './App.css';
 
 function App() {
   // Initialize API polling
   useBitcoinPrice();
   useStockPrices();
+    useSharesOutstanding();
 
   return (
     <div className="app">
