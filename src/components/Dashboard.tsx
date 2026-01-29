@@ -58,7 +58,7 @@ export function Dashboard() {
   const setSortConfig = useStore((s) => s.setSortConfig);
 
 
-h  const companiesWithCalcs: CompanyWithCalculations[] = useMemo(() => {
+   const companiesWithCalcs: CompanyWithCalculations[] = useMemo(() => {
     return companies.map((company) => {
       const stockPrice = getEffectiveStockPrice({
         ticker: company.ticker,
