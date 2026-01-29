@@ -1,4 +1,4 @@
-aimport { useEffect, useCallback, useRef } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { useStore } from '../store/useStore';
 
 // List of CORS proxies to try in order
