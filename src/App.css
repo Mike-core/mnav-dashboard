@@ -417,5 +417,106 @@ thead .frozen {
 }
 
 .loading {
+
+  /* Shares Outstanding Cell Styles */
+  .shares-cell {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+  }
+
+  .shares-cell:hover {
+      background-color: var(--row-hover);
+  }
+
+  .shares-cell-editing {
+      padding: 0;
+  }
+
+  .shares-value {
+      font-variant-numeric: tabular-nums;
+  }
+
+  .shares-icon {
+      font-size: 0.875rem;
+  }
+
+  .shares-reset-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.125rem 0.25rem;
+      font-size: 0.875rem;
+      border-radius: 2px;
+      opacity: 0;
+      transition: opacity 0.2s ease, color 0.2s ease;
+  }
+
+  .shares-cell:hover .shares-reset-btn {
+      opacity: 1;
+  }
+
+  .shares-reset-btn:hover {
+      color: var(--accent-blue);
+      background-color: var(--bg-tertiary);
+  }
+
+  .shares-input {
+      width: 100%;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid var(--accent-blue);
+      border-radius: 4px;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: inherit;
+      font-family: inherit;
+      outline: none;
+  }
+
+  .shares-input:focus {
+      box-shadow: 0 0 0 2px rgba(48, 130, 246, 0.3);
+  }
+
+  .shares-input-invalid {
+      border-color: var(--accent-red);
+  }
+
+  .shares-input-invalid:focus {
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.3);
+  }
+
+  /* Data source specific styles */
+  .shares-source-api {
+      color: var(--text-primary);
+  }
+
+  .shares-source-manual {
+      color: var(--accent-blue);
+  }
+
+  .shares-source-manual .shares-value {
+      font-style: italic;
+  }
+
+  .shares-source-error {
+      color: var(--accent-red);
+  }
+
+  .shares-source-error:hover {
+      background-color: rgba(239, 68, 68, 0.1);
+  }
+
+  .shares-source-loading {
+      color: var(--text-muted);
+  }
+
+  .shares-source-loading .shares-value {
+      animation: pulse 1.5s ease-in-out infinite;
+  }
   animation: pulse 1.5s ease-in-out infinite;
 }
