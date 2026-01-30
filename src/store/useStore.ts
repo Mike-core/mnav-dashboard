@@ -42,7 +42,7 @@ interface StoreState {
       setStockApiStatus: (status: ApiStatus) => void;
       setSharesOutstandingApiStatus: (status: ApiStatus) => void; // NEW
   setSortConfig: (config: SortConfig) => void;
-      importData: (companies: Company[]) => void;
+      importData: (data: { companies: Company[]; manualSharesOutstanding?: Record<string, number | null>; manualStockPrices?: Record<string, number | null>; }) => void;
       resetToDefaults: () => void;
 }
 
@@ -145,7 +145,7 @@ export const useStore = create<StoreState>()(
 
                         setSortConfig: (config) => set({ sortConfig: config }),
 
-                        importData: (companies) => set({ companies }),
+                        importData: (data) => set({ companies: data.companies, manualSharesOutstanding: data.manualSharesOutstanding || {}, manualStockPrices: data.manualStockPrices || {} }),
 
                         resetToDefaults: () =>
                                     set({
