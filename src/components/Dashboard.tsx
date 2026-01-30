@@ -186,7 +186,7 @@ export function Dashboard() {
                     return (
                                 <span className={getMNavColor(value as number | null)}>
                                   {formatRatio(value as number | null)}
-                                </span>span>
+                                </span>
                               );
 
           case 'ratio':
@@ -210,8 +210,8 @@ export function Dashboard() {
                                                             onChange={(newVal) => setManualStockPrice(company.ticker, newVal)}
                                                             placeholder={apiPrice !== null ? formatUSDPrice(apiPrice) : '—'}
                                                           />
-                                  {isManual && <span className="manual-badge">M</span>span>}
-                                </div>div>
+                                  {isManual && <span className="manual-badge">M</span>}
+                                </div>
                               );
           }
             
