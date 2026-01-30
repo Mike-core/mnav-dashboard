@@ -35,3 +35,6 @@ export interface SortConfig {
 }
 
 export type ApiStatus = 'idle' | 'loading' | 'success' | 'error';
+
+// Source of shares outstanding data
+export type SharesDataSource = 'api' | 'manual' | 'error' | 'loading';
