@@ -1,4 +1,4 @@
-himport { useMemo, useCallback } from 'react';
+import { useMemo, useCallback } from 'react';
 import { useStore, getEffectiveStockPrice, getEffectiveSharesOutstanding, getSharesDataSource } from '../store/useStore';
 import { calculateAll } from '../utils/calculations';
 import { formatUSD, formatUSDPrice, formatRatio } from '../utils/formatters';
@@ -343,4 +343,4 @@ export function Dashboard() {
                 </div>
           </div>
         );
-}</div>
+}
