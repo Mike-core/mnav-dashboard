@@ -111,7 +111,7 @@ export function SharesOutstandingCell({
                                       className={`shares-input ${!isValid ? 'shares-input-invalid' : ''}`}
                                       placeholder="e.g., 1.5B, 250M"
                                     />
-                </div>div>
+                </div>
               );
   }
 
@@ -123,8 +123,8 @@ export function SharesOutstandingCell({
               >
               <span className="shares-value">
                 {dataSource === 'loading' ? '...' : formatSharesOutstanding(effectiveShares)}
-              </span>span>
-          {icon && <span className="shares-icon">{icon}</span>span>}
+              </span>
+          {icon && <span className="shares-icon">{icon}</span>}
           {dataSource === 'manual' && (
                         <button
                                     className="shares-reset-btn"
@@ -132,8 +132,8 @@ export function SharesOutstandingCell({
                                     title="Reset to API value"
                                   >
                                   ↺
-                        </button>button>
+                        </button>
               )}
-        </div>div>
+        </div>
       );
-}</div>
+}
