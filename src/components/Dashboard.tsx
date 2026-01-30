@@ -1,4 +1,4 @@
-import { useMemo, useCallback } from 'react';
+himport { useMemo, useCallback } from 'react';
 import { useStore, getEffectiveStockPrice, getEffectiveSharesOutstanding, getSharesDataSource } from '../store/useStore';
 import { calculateAll } from '../utils/calculations';
 import { formatUSD, formatUSDPrice, formatRatio } from '../utils/formatters';
@@ -325,22 +325,22 @@ export function Dashboard() {
                 <div className="legend">
                         <span className="legend-title">mNAV Legend:</span>
                         <span className="legend-item">
-                                  <span className="legend-dot mnav-green-bg"></span>span>
+                                  <span className="legend-dot mnav-green-bg"></span>
                                   &lt; 1.0 (Discount)
-                        </span>span>
+                        </span>
                         <span className="legend-item">
-                                  <span className="legend-dot mnav-yellow-bg"></span>span>
+                                  <span className="legend-dot mnav-yellow-bg"></span>
                                   1.0 - 1.5 (Slight Premium)
-                        </span>span>
+                        </span>
                         <span className="legend-item">
-                                  <span className="legend-dot mnav-red-bg"></span>span>
+                                  <span className="legend-dot mnav-red-bg"></span>
                                   &gt; 1.5 (Premium)
-                        </span>span>
+                        </span>
                         <span className="legend-item manual-legend">
-                                  <span className="manual-badge">M</span>span>
+                                  <span className="manual-badge">M</span>
                                   Manual Override
-                        </span>span>
-                </div>div>
-          </div>div>
+                        </span>
+                </div>
+          </div>
         );
 }</div>
