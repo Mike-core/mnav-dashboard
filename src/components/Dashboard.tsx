@@ -299,10 +299,10 @@ export function Dashboard() {
                                               >
                               {col.label}
                               {getSortIndicator(col.key)}
-                            </th>th>
+                            </th>
                           ))}
-                                              </tr>tr>
-                                  </thead>thead>
+                                              </tr>
+                                  </thead>
                                   <tbody>
                                     {sortedCompanies.map((company) => (
                           <tr key={company.id}>
@@ -314,16 +314,16 @@ export function Dashboard() {
                                                                     } ${index === 1 ? 'frozen-second' : ''}`}
                                                                   >
                                                 {renderCell(company, col.key, col.type)}
-                                              </td>td>
+                                              </td>
                                             ))}
-                          </tr>tr>
+                          </tr>
                         ))}
-                                  </tbody>tbody>
-                        </table>table>
-                </div>div>
+                                  </tbody>
+                        </table>
+                </div>
                 
                 <div className="legend">
-                        <span className="legend-title">mNAV Legend:</span>span>
+                        <span className="legend-title">mNAV Legend:</span>
                         <span className="legend-item">
                                   <span className="legend-dot mnav-green-bg"></span>span>
                                   &lt; 1.0 (Discount)
