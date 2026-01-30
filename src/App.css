@@ -417,6 +417,8 @@ thead .frozen {
 }
 
 .loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
 
   /* Shares Outstanding Cell Styles */
   .shares-cell {
@@ -516,7 +518,5 @@ thead .frozen {
   }
 
   .shares-source-loading .shares-value {
-      animation: pulse 1.5s ease-in-out infinite;
-  }
   animation: pulse 1.5s ease-in-out infinite;
 }
