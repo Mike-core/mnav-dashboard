@@ -147,7 +147,7 @@ export function Dashboard() {
                           return (
                                         <span className={getMNavColor(value as number | null)}>
                                             {formatRatio(value as number | null)}
-                                        </span>span>
+                                        </span>
                                       );
 
               case 'ratio':
@@ -171,8 +171,8 @@ export function Dashboard() {
                                                                       onChange={(newVal) => setManualStockPrice(company.ticker, newVal)}
                                                                       placeholder={apiPrice !== null ? formatUSDPrice(apiPrice) : '—'}
                                                                     />
-                                            {isManual && <span className="manual-badge">M</span>span>}
-                                        </div>div>
+                                            {isManual && <span className="manual-badge">M</span>}
+                                        </div>
                                       );
               }
                   
@@ -245,10 +245,10 @@ export function Dashboard() {
                                                       >
                                       {col.label}
                                       {getSortIndicator(col.key)}
-                                  </th>th>
+                                  </th>
                                 ))}
-                                                  </tr>tr>
-                                      </thead>thead>
+                                                  </tr>
+                                      </thead>
                                       <tbody>
                                           {sortedCompanies.map((company) => (
                                 <tr key={company.id}>
@@ -260,31 +260,31 @@ export function Dashboard() {
                                                                                   } ${index === 1 ? 'frozen-second' : ''}`}
                                                                             >
                                                           {renderCell(company, col.key, col.type)}
-                                                      </td>td>
+                                                      </td>
                                                     ))}
-                                </tr>tr>
+                                </tr>
                               ))}
-                                      </tbody>tbody>
-                            </table>table>
-                    </div>div>
+                                      </tbody>
+                            </table>
+                    </div>
                     <div className="legend">
-                            <span className="legend-title">mNAV Legend:</span>span>
+                            <span className="legend-title">mNAV Legend:</span>
                             <span className="legend-item">
-                                      <span className="legend-dot mnav-green-bg"></span>span>
+                                      <span className="legend-dot mnav-green-bg"></span>
                                       &lt; 1.0 (Discount)
-                            </span>span>
+                            </span>
                             <span className="legend-item">
-                                      <span className="legend-dot mnav-yellow-bg"></span>span>
+                                      <span className="legend-dot mnav-yellow-bg"></span>
                                       1.0 - 1.5 (Slight Premium)
-                            </span>span>
+                            </span>
                             <span className="legend-item">
-                                      <span className="legend-dot mnav-red-bg"></span>span>
+                                      <span className="legend-dot mnav-red-bg"></span>
                                       &gt; 1.5 (Premium)
-                            </span>span>
+                            </span>
                             <span className="legend-item manual-legend">
-                                      <span className="manual-badge">M</span>span> Manual Override
-                            </span>span>
-                    </div>div>
-              </div>div>
+                                      <span className="manual-badge">M</span> Manual Override
+                            </span>
+                    </div>
+              </div>
             );
 }</div>
